@@ -101,6 +101,9 @@
 .hero h1, .hero h1 .period { color:#F5E5EE !important; }
 :root[data-theme="light"] .hero h1, :root[data-theme="light"] .hero h1 .period { color:#37242F !important; }
 
+
+/* Light theme: preserve the rose-metal logo, but restore contrast on the pale header. */
+:root[data-theme="light"] .brand--signature .signature-logo {filter: brightness(.57) contrast(1.28) saturate(1.55) drop-shadow(0 1px 0 rgba(75, 37, 64, .16));}
 </style>
   
 </head>
