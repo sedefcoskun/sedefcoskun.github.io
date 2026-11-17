@@ -163,11 +163,6 @@
   function renderSocials() {
     const socials = $('#social-links');
     socials.replaceChildren();
-    if (PORTFOLIO.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(PORTFOLIO.email)) {
-      const link = create('a', '', t('mailLabel'));
-      link.href = `mailto:${PORTFOLIO.email}`;
-      socials.append(link);
-    }
     [['github', 'GitHub ↗'], ['linkedin', 'LinkedIn ↗']].forEach(([key, label]) => {
       if (urlAllowed(PORTFOLIO[key])) {
         const link = create('a', '', label);
