@@ -100,7 +100,7 @@
     try { localStorage.setItem(key, value); }
     catch { /* file:// or private mode may block storage; UI still works */ }
   }
-  let language = readPref('sedef-portfolio-language', 'en') === 'tr' ? 'tr' : 'en';
+  let language = readPref('sedef-portfolio-sc-logo-language', 'en') === 'tr' ? 'tr' : 'en';
   let activeFilter = 'all';
   let openProject = null;
   const t = key => translations[language][key];
@@ -198,7 +198,7 @@
     $('#menu-toggle').setAttribute('aria-label', t('menuLabel'));
     $('#dialog-close').setAttribute('aria-label', t('closeLabel'));
     $('#theme-toggle').setAttribute('aria-label', t(document.documentElement.dataset.theme === 'light' ? 'themeDark' : 'themeLight'));
-    storePref('sedef-portfolio-language', language);
+    storePref('sedef-portfolio-sc-logo-language', language);
     renderProjects();
     renderSocials();
     $$('[data-cv]').forEach(node => node.remove());
@@ -227,7 +227,7 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { openProject = null; });
   const themeButton = $('#theme-toggle');
-  document.documentElement.dataset.theme = readPref('sedef-portfolio-theme', 'dark') === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = readPref('sedef-portfolio-sc-logo-theme', 'dark') === 'light' ? 'light' : 'dark';
   const setThemeIcon = () => {
     themeButton.querySelector('.theme-icon').textContent = document.documentElement.dataset.theme === 'light' ? '☀' : '☾';
     themeButton.setAttribute('aria-label', t(document.documentElement.dataset.theme === 'light' ? 'themeDark' : 'themeLight'));
@@ -235,7 +235,7 @@
   themeButton.addEventListener('click', () => {
     const light = document.documentElement.dataset.theme !== 'light';
     document.documentElement.dataset.theme = light ? 'light' : 'dark';
-    storePref('sedef-portfolio-theme', document.documentElement.dataset.theme);
+    storePref('sedef-portfolio-sc-logo-theme', document.documentElement.dataset.theme);
     setThemeIcon();
   });
   setThemeIcon();
